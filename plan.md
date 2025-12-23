@@ -1,34 +1,13 @@
-Goal: Build a Python neural network visualization that shows neurons being created and activating ("lighting up") as a time-series input flows through.
+Loading dataset: pmoe7/SP_500_Stocks_Data-ratios_news_price_10_yrs...
+Repo card metadata block was not found. Setting CardData to empty.
+Generating train split: 1048575 examples [00:02, 380874.89 examples/s]
+Filtering for AAPL...
+Using features: ['Open', 'Close', 'Volume']
+Data shape: (200, 3)
+Opening live visualization window...
+Saving a snippet to 'results/nn_activation.gif'...
+Could not save GIF: Animation.save() got an unexpected keyword argument 'frames'
 
-Dataset:
-- Use the Hugging Face dataset "pmoe7/SP_500_Stocks_Data-ratios_news_price_10_yrs"
-  (daily stock price + fundamentals + news sentiment for S&P 500). :contentReference[oaicite:2]{index=2}
-
-Requirements:
-1. Load the dataset using the Hugging Face `datasets` library.
-2. Extract a subset of numerical features like: open, high, low, close, volume, and a few technical indicators if available.
-3. Preprocess and normalize the data for neural network input.
-4. Build a small neural network in PyTorch or TensorFlow with:
-   - Input layer matching the number of features
-   - One or two hidden layers (ReLU or tanh activations)
-   - Final output layer with 3–5 neurons representing simple classes (e.g., predicted trend up/down/neutral).
-5. Set up hooks or callbacks to capture activations for each input row.
-6. Visualize the network:
-   - Draw nodes and layers using a visualization library (e.g., NetworkX + Matplotlib).
-   - For each time step (row) in the dataset, run a forward pass and update node visuals:
-       • Node size, color intensity, or glow corresponds to activation magnitude.
-       • Animate across the series (Matplotlib animation or interactive PyGame).
-7. Optional: Save animation to video or allow interactive stepping.
-8. Ensure the visualization clearly shows:
-   - Network creation
-   - Activation propagation from input → hidden → output layers
-   - Output decision strength
-   - Smooth time progression over stock dataset
-
-Deliverables:
-- Python script (`stock_nn_visualization.py`)
-- Instructions on how to install dependencies
-- Example animation output
-- Comments explaining activation capture and visualization logic
-
-Use best practices for clean, modular code.
+1) why are we filtering for AAPL? if so, i want to be able to select the ticker to filter for.
+2) the styling on the window is bad, and the gif doesnt save. make sure all text fits within the window and looks better
+3) please provide a .md file to briefly explain what the nodes mean and the input/output. is this an actual neural net? why does it make the same decisions the whole time?
